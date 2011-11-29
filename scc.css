@@ -1,6 +1,6 @@
 @font-face
 {
-	font-family:'Officina';
+	font-family:'ITC Officina Serif Std';
 	src: url('assets/fonts/OfficinaSerifStd-Book.otf');
 	font-weight: normal;
 	font-style: normal;
@@ -10,8 +10,8 @@ body
 	background:url(assets/images/top-lit-wood.jpg) top center fixed no-repeat #23130e;
     color:#45281C;
     font-size:2em;
-    font-weight:normal;
-    font-family:"Officina", "Lucida Sans","Lucida Grande","Lucida Sans Unicode",Tahoma,"Helvetica Neue",Arial,Helvetica;
+	font-weight:normal;
+    font-family:"ITC Officina Serif Std", "Lucida Sans","Lucida Grande","Lucida Sans Unicode",Tahoma,"Helvetica Neue",Arial,Helvetica;
 }
 header
 {
@@ -45,7 +45,7 @@ a
 .title
 {
 	font-size:1.9em;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .7);
 }
 .bodyText
 {
@@ -82,6 +82,8 @@ footer h1
 	padding-left:20px;
 	font-size:.7em;
 	margin-bottom:0px;
+	font-weight:normal;
+	text-shadow: 0 3px 0 rgba(0, 0, 0, 1);
 }
 footer article
 {
