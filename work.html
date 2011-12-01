@@ -4,6 +4,11 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<title>Spillane Custom Carpentry</title>
 		<link rel="stylesheet" type="text/css" href="scc.css" />
+		<link rel="stylesheet" type="text/css" href="assets/galleria/themes/classic/galleria.classic.css">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="assets/galleria/galleria-1.2.5.min.js"></script>
+		<script type="text/javascript" src="assets/galleria/plugins/flickr/galleria.flickr.min.js"></script>
+		<script type="text/javascript" src="assets/galleria/themes/classic/galleria.classic.min.js"></script>
 	</head>
 	<body>
 		<div class="centerer">
@@ -28,6 +33,18 @@
 			<div id="bodyContainer">
 				<p class="bodyText">
 				</p>
+				<div id="galleria">
+				</div>
+				<script>
+					Galleria.loadTheme('assets/galleria/themes/classic/galleria.classic.min.js');
+					$('#galleria').galleria({
+						width:976,
+						height:400,
+					    flickr: 'set:72157626546500717',
+					    flickrOptions: {
+					        sort: 'date-posted-asc'
+					    }
+					});				</script>
 				<div style="clear:both"></div>
 			</div>
 			<footer>
