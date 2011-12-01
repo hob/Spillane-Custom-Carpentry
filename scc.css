@@ -22,12 +22,29 @@ header
 }
 a
 {
-	color:#45281C;
+	color:#D3B7AB;
 	text-decoration:none;
+	text-shadow: 0 1px 0 rgba(0, 0, 255, .8);
+}
+nav ul
+{
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+nav li
+{
+	display:inline;
+}
+nav a
+{
+	color:#D3B7AB;
+	font-size:.75em;
+	text-shadow: 0 3px 0 rgba(0, 0, 0, 1);
 }
 .centerer
 {
-	width:1081px;
+	width:1024px;
 	margin:auto;
 }
 #bodyContainer
@@ -65,16 +82,46 @@ a
 	float:right;
 	margin-left:20px;
 }
+nav li
+{
+	display:block;
+	background-repeat: no-repeat;
+	vertical-align:middle;
+	width:181px;
+	height:39px;
+	float:left;
+	position:relative;
+	line-height:1.3em;
+}
+#tabOne
+{
+	padding-left:30px;
+	
+}
+#tabTwo
+{
+	margin-left:-56px;
+	padding-left:30px;
+}
+#tabThree
+{
+	margin-left:-56px;
+	padding-left:20px;
+}
+.selectedTab
+{
+	background-image: url('assets/images/selectedTab.png');
+	z-index:99;
+}
 .tab
 {
-	vertical-align:middle;
+	background-image: url('assets/images/tab.png');
+	z-index:1;
 }
-.tabContainer
+.leftUnselectedTab
 {
-	float:left;
-	color:#D3B7AB;
-	font-size:.75em;
-	text-shadow: 0 3px 0 rgba(0, 0, 0, 1);
+	background-image: url('assets/images/tabLeft.png');
+	z-index:2;
 }
 footer
 {
