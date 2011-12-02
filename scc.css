@@ -1,15 +1,5 @@
-@font-face {
-	font-family:'Sanford';
-	src: url('SANFW___.TTF') format('truetype');
-	font-weight:normal;
-	font-style:normal;
-}
-@font-face {
-	font-family: 'OptimusPrinceps';
-	src: url('assets/fonts/OptimusPrinceps.ttf') format('truetype');
-	font-weight:normal;
-	font-style:normal;
-}
+@import url('http://fonts.googleapis.com/css?family=Fanwood+Text:400,400italic');
+/*
 @font-face {
     font-family: 'ITC Officina Serif Std';
     src: url('assets/fonts/officinaserifstd-book-webfont.eot');
@@ -19,18 +9,19 @@
          url('assets/fonts/officinaserifstd-book-webfont.svg#ITCOfficinaSerifStdBook') format('svg');
     font-weight: normal;
     font-style: normal;
-}
+}*/
 body
 {
 	background:url(assets/images/top-lit-wood.jpg) top center fixed no-repeat #23130e;
     color:#45281C;
     font-size:2em;
-    font-family:"ITC Officina Serif Std", "Lucida Sans","Lucida Grande","Lucida Sans Unicode",Tahoma,"Helvetica Neue",Arial,Helvetica;
+    font-family:"Fanwood Text", "Helvetica Neue", Arial,Helvetica;
 }
 header
 {
 	padding:10px;
 	text-align:center;
+	white-space:nowrap;
 }
 a
 {
@@ -85,7 +76,7 @@ nav a
 	line-height:1.5;
 	margin:0px;
 	text-align:justify;
-	font-family:"Lucida Sans";
+	font-family:"Helvetica Neue";
 }
 #aboutUsImage
 {
@@ -166,6 +157,7 @@ footer ul
 	float:left;
 	width:350px;
 	padding-right:60px;
+	font-family:"Helvetica Neue";
 }
 .services
 {
@@ -176,21 +168,9 @@ footer ul
 {
 	float:left;
 }
-.galleria-image
-{
-	background:#6A5349;
-}
-.galleria-container
-{
-	background:##6A5349;
-}
-.galleryContainer
-{
-	float:left;
-	clear:both;
-}
 .galleryContainer h1
 {
+	font-weight:normal;
 	font-size:.8em;
 	margin:0;
 	padding:0;
