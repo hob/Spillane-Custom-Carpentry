@@ -4,11 +4,47 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<title>Spillane Custom Carpentry</title>
 		<link rel="stylesheet" type="text/css" href="scc.css" />
-		<link rel="stylesheet" type="text/css" href="assets/galleria/themes/classic/galleria.classic.css">
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-		<script type="text/javascript" src="assets/galleria/galleria-1.2.5.min.js"></script>
-		<script type="text/javascript" src="assets/galleria/plugins/flickr/galleria.flickr.min.js"></script>
-		<script type="text/javascript" src="assets/galleria/themes/classic/galleria.classic.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/jquery-lightbox/css/jquery.lightbox-0.5.css" />
+		<script type="text/javascript" src="assets/jquery-lightbox/js/jquery.js"></script>
+		<script type="text/javascript" src="assets/jquery-lightbox/js/jquery.lightbox-0.5.min.js"></script>
+		<script type="text/javascript">
+			function createGallery(tag, containerId) {
+			    var apiKey = '55ee2fd5b04b436eb07f894a8f8213e2';
+			    var userId = '67916954@N00';
+			    var perPage = '1000';
+			    var showOnPage = '1000';
+
+			    $.getJSON('http://api.flickr.com/services/rest/?format=json&method=flickr.photos.search&api_key=' + apiKey + '&user_id=' + userId + '&tags=' + tag + '&per_page=' + perPage + '&jsoncallback=?', 
+			    function(data){
+			        var classShown = 'class="lightbox"';
+			        var classHidden = 'class="lightbox hidden"';
+
+			        $.each(data.photos.photo, function(i, rPhoto){
+			          var basePhotoURL = 'http://farm' + rPhoto.farm + '.static.flickr.com/'
+			            + rPhoto.server + '/' + rPhoto.id + '_' + rPhoto.secret;            
+
+			            var thumbPhotoURL = basePhotoURL + '_s.jpg';
+			            var mediumPhotoURL = basePhotoURL + '.jpg';
+
+			            var photoStringStart = '<a ';
+			            var photoStringEnd = 'title="' + rPhoto.title + '" href="'+ 
+			                mediumPhotoURL +'"><img src="' + thumbPhotoURL + '" alt="' + 
+			                rPhoto.title + '"/></a>;'                
+			            var photoString = (i < showOnPage) ? 
+			                photoStringStart + classShown + photoStringEnd : 
+			                photoStringStart + classHidden + photoStringEnd;
+
+			            $(photoString).appendTo("#" + containerId);
+			        });
+			        $("a.lightbox").lightBox();
+			    });
+			}
+			createGallery('sccmantels', 'mantels');
+			createGallery('sccdecks', 'decks');
+			createGallery('sccrenovations', 'renovations');
+			createGallery('scccabinetry', 'cabinetry');
+			createGallery('scctrim', 'trim');
+		</script>
 	</head>
 	<body>
 		<div class="centerer">
@@ -31,20 +67,21 @@
 				<div style="clear:both"></div>
 			</nav>
 			<div id="bodyContainer">
-				<p class="bodyText">
-				</p>
-				<div id="galleria">
+				<div class="galleryContainer" id="mantels">
+					<h1>Mantels</h1>
 				</div>
-				<script>
-					Galleria.loadTheme('assets/galleria/themes/classic/galleria.classic.min.js');
-					$('#galleria').galleria({
-						width:976,
-						height:400,
-					    flickr: 'set:72157626546500717',
-					    flickrOptions: {
-					        sort: 'date-posted-asc'
-					    }
-					});				</script>
+				<div class="galleryContainer" id="decks">
+					<h1>Decks</h1>
+				</div>
+				<div class="galleryContainer" id="renovations">
+					<h1>Renovations</h1>
+				</div>
+				<div class="galleryContainer" id="cabinetry">
+					<h1>Cabinetry</h1>
+				</div>
+				<div class="galleryContainer" id="trim">
+					<h1>Interior Trim</h1>
+				</div>
 				<div style="clear:both"></div>
 			</div>
 			<footer>
