@@ -157,6 +157,9 @@ footer ul
 	float:left;
 	width:350px;
 	padding-right:60px;
+}
+.testimonials article
+{
 	font-family:"Helvetica Neue";
 }
 .services
