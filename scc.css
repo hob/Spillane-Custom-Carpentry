@@ -225,3 +225,12 @@ blockquote
 	padding:0px;
 	margin:0px;
 }
+.services ul
+{
+	padding-left:33px;
+}
+.services li
+{
+	font-size:.9em;
+	font-family:"Helvetica Neue";
+}
