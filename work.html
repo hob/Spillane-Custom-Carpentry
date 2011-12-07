@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="scc.css" />
 		<link rel="stylesheet" type="text/css" href="assets/jquery-lightbox/css/jquery.lightbox-0.5.css" />
 		<script type="text/javascript" src="assets/jquery-lightbox/js/jquery.js"></script>
+		<script type="text/javascript" src="assets/js/testimonials.js"></script>
 		<script type="text/javascript" src="assets/jquery-lightbox/js/jquery.lightbox-0.5.min.js"></script>
 		<script type="text/javascript">
 			function createGallery(tag, containerId) {
@@ -67,27 +68,32 @@
 				<div style="clear:both"></div>
 			</nav>
 			<div id="bodyContainer">
-				<div class="galleryContainer" id="mantels">
-					<h1>Mantels</h1>
-				</div>
-				<div class="galleryContainer" id="decks">
-					<h1>Decks</h1>
-				</div>
-				<div class="galleryContainer" id="renovations">
-					<h1>Renovations</h1>
-				</div>
-				<div class="galleryContainer" id="cabinetry">
-					<h1>Cabinetry</h1>
-				</div>
-				<div class="galleryContainer" id="trim">
-					<h1>Interior Trim</h1>
-				</div>
+				<ul id="galleryList">
+					<li class="galleryContainer" id="mantels">
+						<h1>Mantels</h1>
+					</li>
+					<li class="galleryContainer" id="decks">
+						<h1>Decks</h1>
+					</li>
+					<li class="galleryContainer" id="renovations">
+						<h1>Renovations</h1>
+					</li>
+					<li class="galleryContainer" id="cabinetry">
+						<h1>Cabinetry</h1>
+					</li>
+					<li class="galleryContainer" id="trim">
+						<h1>Interior Trim</h1>
+					</li>
+				</ul>
 				<div style="clear:both"></div>
 			</div>
 			<footer>
 				<div class="testimonials">
 					<h1>Testimonials</h1>
-					<article>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</article>
+					<article>
+						<q id="testimonial"></q>
+						<div id="testimonialAuthor"></div>
+					</article>
 				</div>
 				<div class="services">
 					<h1>Services</h1>

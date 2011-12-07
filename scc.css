@@ -27,7 +27,7 @@ a
 {
 	color:#D3B7AB;
 	text-decoration:none;
-	text-shadow: 0 1px 0 rgba(0, 0, 255, .8);
+	border-bottom:1px dashed;
 }
 nav ul
 {
@@ -43,11 +43,12 @@ nav a
 {
 	color:#D3B7AB;
 	font-size:.75em;
+	border-bottom:0px;
 	text-shadow: 0 3px 0 rgba(0, 0, 0, 1);
 }
 .centerer
 {
-	width:1024px;
+	width:1000px;
 	margin:auto;
 }
 #bodyContainer
@@ -138,19 +139,21 @@ footer h1
 	font-size:.7em;
 	margin-bottom:0px;
 	font-weight:normal;
-	text-shadow: 0 3px 0 rgba(0, 0, 0, 1);
 }
 footer article
 {
 	font-size:.5em;
 	padding-left:40px;
-	font-style:italic;
 }
 footer ul
 {
 	list-style-type:none;
 	font-size:.65em;
 	margin:0px;
+}
+footer ul a
+{
+	border-bottom:none;
 }
 .testimonials
 {
@@ -162,6 +165,16 @@ footer ul
 {
 	font-family:"Helvetica Neue";
 }
+#testimonial
+{
+	font-style:italic;
+	text-shadow: 0 2px 0 rgba(0, 0, 0, .8);
+	font-weight:200;
+}
+#testimonialAuthor
+{
+	padding-top:10px;
+}
 .services
 {
 	float:left;
@@ -170,6 +183,10 @@ footer ul
 .follow
 {
 	float:left;
+}
+.galleryContainer
+{
+	list-style:none;
 }
 .galleryContainer h1
 {
@@ -184,4 +201,13 @@ footer ul
 	padding:5px;
 	margin:5px;
 	box-shadow:1px 1px 5px #111;
+}
+.galleryContainer a
+{
+	border-bottom:none;
+}
+#galleryList
+{
+	padding:0px;
+	margin:0px;
 }
