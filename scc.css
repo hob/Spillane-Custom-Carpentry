@@ -171,6 +171,12 @@ footer ul
 	text-shadow: 0 2px 0 rgba(0, 0, 0, .8);
 	font-weight:200;
 }
+blockquote
+{
+	text-indent:-0.4em;
+	padding:0px;
+	margin:0px;
+}
 #testimonialAuthor
 {
 	padding-top:10px;
