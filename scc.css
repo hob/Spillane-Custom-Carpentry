@@ -79,6 +79,12 @@ nav a
 	text-align:justify;
 	font-family:"Helvetica Neue";
 }
+address.bodyText
+{
+	font-style:normal;
+	font-size:.5em;
+}
+
 #aboutUsImage
 {
 	background:#6A5349;
