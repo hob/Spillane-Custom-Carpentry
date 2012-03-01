@@ -189,10 +189,9 @@
 			var objImagePreloader = new Image();
 			objImagePreloader.onload = function() {
 				$('#lightbox-image').attr('src',settings.imageArray[settings.activeImage][0]);
-				$('#lightbox-container-image-data').append('<div style="clear:left" class="fb-comments" data-href="' + settings.imageArray[settings.activeImage][0] + '" data-num-posts="3" data-width="100%"></div>');
+				$('#fb-comments').remove();
+				$('#lightbox-container-image-data').append('<div id="fb-comments" style="clear:left" class="fb-comments" data-href="http://www.spillanecustomcarpentry.com/work.html?image=' + encodeURIComponent(settings.imageArray[settings.activeImage][0]) + '" data-num-posts="3"></div>');
 				$('#lightbox-container-image-data').append('<script>FB.XFBML.parse();</script>');
-				//$('#lightbox-container-image-data').append('<div id="fb-root"></div>');
-				//$('#lightbox-container-image-data').append('<script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, "script", "facebook-jssdk"));</script>');
 				// Perfomance an effect in the image container resizing it
 				_resize_container_image_box(objImagePreloader.width,objImagePreloader.height);
 				//	clear onLoad, IE behaves irratically with animated gifs otherwise
