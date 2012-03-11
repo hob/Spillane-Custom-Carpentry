@@ -74,11 +74,11 @@
 			settings.activeImage = 0;
 			// We have an image set? Or just an image? Let´s see it.
 			if ( jQueryMatchedObj.length == 1 ) {
-				settings.imageArray.push(new Array(objClicked.getAttribute('href'),objClicked.getAttribute('title')));
+				settings.imageArray.push(new Array(objClicked.getAttribute('href'),objClicked.getAttribute('title'),objClicked.getAttribute('id')));
 			} else {
 				// Add an Array (as many as we have), with href and title atributes, inside the Array that storage the images references		
 				for ( var i = 0; i < jQueryMatchedObj.length; i++ ) {
-					settings.imageArray.push(new Array(jQueryMatchedObj[i].getAttribute('href'),jQueryMatchedObj[i].getAttribute('title')));
+					settings.imageArray.push(new Array(jQueryMatchedObj[i].getAttribute('href'),jQueryMatchedObj[i].getAttribute('title'),jQueryMatchedObj[i].getAttribute('id')));
 				}
 			}
 			while ( settings.imageArray[settings.activeImage][0] != objClicked.getAttribute('href') ) {
@@ -190,7 +190,7 @@
 			objImagePreloader.onload = function() {
 				$('#lightbox-image').attr('src',settings.imageArray[settings.activeImage][0]);
 				$('#fb-comments').remove();
-				$('#lightbox-container-image-data').append('<div id="fb-comments" style="clear:left" class="fb-comments" data-href="http://www.spillanecustomcarpentry.com/work.html?image=' + encodeURIComponent(settings.imageArray[settings.activeImage][0]) + '" data-num-posts="3"></div>');
+				$('#lightbox-container-image-data').append('<div id="fb-comments" style="clear:left" class="fb-comments" data-href="http://www.spillanecustomcarpentry.com/work.html?imageId=' + settings.activeImage[2] + '" data-num-posts="2"></div>');
 				$('#lightbox-container-image-data').append('<script>FB.XFBML.parse();</script>');
 				// Perfomance an effect in the image container resizing it
 				_resize_container_image_box(objImagePreloader.width,objImagePreloader.height);

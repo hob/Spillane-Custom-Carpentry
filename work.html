@@ -9,7 +9,9 @@
 		<script type="text/javascript" src="assets/js/testimonials.js"></script>
 		<script type="text/javascript" src="assets/jquery-lightbox/js/jquery.lightbox-0.5.js"></script>
 		<script type="text/javascript">
+			var galleryInitCount = 0;
 			function createGallery(tag, containerId) {
+				galleryInitCount++;
 			    var apiKey = '55ee2fd5b04b436eb07f894a8f8213e2';
 			    var userId = '67916954@N00';
 			    var perPage = '1000';
@@ -29,7 +31,7 @@
 
 			            var photoStringStart = '<a ';
 			            var photoStringEnd = 'title="' + rPhoto.title + '" href="'+ 
-			                mediumPhotoURL +'"><img src="' + thumbPhotoURL + '" alt="' + 
+			                mediumPhotoURL +'" id="' + rPhoto.id + '"><img src="' + thumbPhotoURL + '" alt="' + 
 			                rPhoto.title + '"/></a>;'                
 			            var photoString = (i < showOnPage) ? 
 			                photoStringStart + classShown + photoStringEnd : 
@@ -38,7 +40,31 @@
 			            $(photoString).appendTo("#" + containerId);
 			        });
 			        $("a.lightbox").lightBox();
+					galleryInitCount--;
+					if(galleryInitCount==0)
+					{
+						autoLaunch();
+					}
 			    });
+			}
+			function autoLaunch()
+			{
+				var imageId = getParameterByName('imageId');
+				if(imageId)
+				{
+					$('#'+imageId).click();
+				}
+			}
+			function getParameterByName(name)
+			{
+			  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+			  var regexS = "[\\?&]" + name + "=([^&#]*)";
+			  var regex = new RegExp(regexS);
+			  var results = regex.exec(window.location.search);
+			  if(results == null)
+			    return "";
+			  else
+			    return decodeURIComponent(results[1].replace(/\+/g, " "));
 			}
 			createGallery('sccmantles', 'mantles');
 			createGallery('sccdecks', 'decks');
