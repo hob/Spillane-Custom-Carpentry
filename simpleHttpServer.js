@@ -4,6 +4,9 @@ var path = require('path');
 
 http.createServer(function (request, response) {
 	
+	if(request.url.indexOf('?') > -1) {
+		request.url = request.url.substring(0, request.url.indexOf('?'))
+	}
 	var filePath = '.' + request.url;
 	if(filePath == './')
 	{
