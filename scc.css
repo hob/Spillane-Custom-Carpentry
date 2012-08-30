@@ -240,4 +240,4 @@ blockquote
 	font-size:.9em;
 	font-family:"Helvetica Neue";
 }
-.fb-comments, .fb-comments iframe[style] {width: 100% !important;}
+.fb-comments, .fb-comments iframe[style], .fb-comments span {width: 100% !important;}
