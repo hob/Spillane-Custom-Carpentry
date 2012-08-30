@@ -9,6 +9,7 @@
 		<script type="text/javascript" src="assets/js/testimonials.js"></script>
 		<script type="text/javascript" src="assets/jquery-lightbox/js/jquery.lightbox-0.5.js"></script>
 		<script type="text/javascript">
+			var title = getParameterByName('title');
 			var galleryInitCount = 0;
 			function createGallery(tag, containerId) {
 				galleryInitCount++;
@@ -49,7 +50,6 @@
 			}
 			function autoLaunch()
 			{
-				document.title = getParameterByName('title');
 				var imageId = getParameterByName('imageId');
 				if(imageId)
 				{
