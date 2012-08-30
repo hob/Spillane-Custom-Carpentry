@@ -190,7 +190,8 @@
 			objImagePreloader.onload = function() {
 				$('#lightbox-image').attr('src',settings.imageArray[settings.activeImage][0]);
 				$('#fb-comments').remove();
-				$('#lightbox-container-image-data').append('<div id="fb-comments" style="clear:left" class="fb-comments" data-href="http://www.spillanecustomcarpentry.com/work.html?imageId=' + settings.imageArray[settings.activeImage][2] + '" data-num-posts="2"></div>');
+				var activeImage = settings.imageArray[settings.activeImage];
+				$('#lightbox-container-image-data').append('<div id="fb-comments" style="clear:left" class="fb-comments" data-href="http://www.spillanecustomcarpentry.com/photo_view.php?imageId=' + activeImage[2] + '&title=' + activeImage[1] + '&imageURL=' + activeImage[0] + '" data-num-posts="2"></div>');
 				$('#lightbox-container-image-data').append('<script>FB.XFBML.parse();</script>');
 				// Perfomance an effect in the image container resizing it
 				_resize_container_image_box(objImagePreloader.width,objImagePreloader.height);
