@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -6,6 +5,72 @@
 		<link rel="stylesheet" type="text/css" href="scc.css" />
 		<script type="text/javascript" src="assets/jquery-lightbox/js/jquery.js"></script>
 		<script type="text/javascript" src="assets/js/testimonials.js"></script>
+		<script type="text/javascript" src="assets/js/jquery-hashchange.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			var allTabs = ['#about', '#work', '#contact'];
+			$(function(){
+				$(window).hashchange(onHashChange);
+				$(window).hashchange();
+			});
+			function onHashChange() {
+				parseHash();
+				var animate = true;
+				var tabId = document.hashData.tabId;
+				if(!tabId) {
+					tabId = allTabs[0];
+					animate = false;
+				}
+				var selectedTab = $(tabId)[0];
+				for(var i=0;i<allTabs.length;i++) {
+					var tab = $(allTabs[i])[0];
+					if(tab == selectedTab) {
+						if(tab.className != 'selectedTab') {
+							loadTabContent(selectedTab.getAttribute('content'), animate	);
+							tab.className = 'selectedTab';
+						}
+					}else{
+						tab.className = i==0 ? 'leftUnselectedTab' : 'tab';
+					}
+				}
+			}
+			function loadTabContent(tabContentURL, animate) {
+				if(animate) {
+					$('#contentPane').hide('slow',function() {
+						$('#contentPane').load(tabContentURL, function(){
+							$('#contentPane').show('slow');
+						});
+					});
+				}else{
+					$('#contentPane').load(tabContentURL);
+				}
+			}
+			function parseHash() {
+				var tabId=null;
+				var path=null;
+				var query=null;
+				if(location.hash != '') {
+					var hashParts = location.hash.split('?');
+					if(hashParts.length > 1) {
+						query = createQueryMap(hashParts[1]);
+					}
+					var pathParts = hashParts[0].split('/');
+					if(pathParts.length > 1) {
+						path = pathParts[1];
+					}
+					tabId = pathParts[0];
+				}
+				document.hashData = {tabId:tabId,path:path,query:query};
+			}
+			function createQueryMap(query) {
+				var args = query.split('&');
+				var map = {};
+				for(var i=0;i<args.length;i++) {
+					var arg = args[i].split('=');
+					map[arg[0]] =arg[1];
+				}
+				return map;
+			}
+		</script>
 	</head>
 	<body>
 		<div class="centerer">
@@ -15,24 +80,20 @@
 			</header>
 			<nav>
 				<ul>
-					<li id="tabOne" class="selectedTab">
-						<a href="index.html">About Us</a>
+					<li id="about" class="tab" content="/about.html">
+						<a href="#about">About Us</a>
 					</li>
-					<li id="tabTwo" class="tab">
-						<a href="work.html">Our Work</a>
+					<li id="work" class="tab" content="/work.html">
+						<a href="#work">Our Work</a>
 					</li>
-					<li id="tabThree" class="tab">
-						<a href="contact.html">Contact Us</a>
+					<li id="contact" class="tab" content="contact.html">
+						<a href="#contact">Contact Us</a>
 					</li>
 				</ul>
 				<div style="clear:both"></div>
 			</nav>
 			<div id="bodyContainer">
-				<p class="bodyText">
-					<img src="assets/images/TransparentPergola.jpg" id="aboutUsImage"/>
-					Spillane Custom Carpentry is a low-volume, high-quality carpentry business.  We believe time, patience and creativity form the foundation that supports superior building.  The team here at Spillane Custom Carpentry is both dedicated and fastidious.  We use only the highest quality materials, hand-picked from local lumber yards. Most importantly we thrive on attention to detail.  Just like you.
-				</p>
-				<div style="clear:both"></div>
+				<div id="contentPane"></div>
 			</div>
 			<footer>
 				<div class="testimonials">
@@ -45,11 +106,11 @@
 				<div class="services">
 					<h1>Services</h1>
 					<ul>
-						<li><a href="work.html#mantles">Mantles</a></li>
-						<li><a href="work.html#decks">Decks</a></li>
-						<li><a href="work.html#renovations">Renovations</a></li>
-						<li><a href="work.html#cabinetry">Cabinetry</a></li>
-						<li><a href="work.html#trim">Interior Trim</a></li>
+						<li><a href="#work/mantles">Mantles</a></li>
+						<li><a href="#work/decks">Decks</a></li>
+						<li><a href="#work/renovations">Renovations</a></li>
+						<li><a href="#work/cabinetry">Cabinetry</a></li>
+						<li><a href="#work/trim">Interior Trim</a></li>
 					</ul>
 				</div>
 				<div class="follow">

@@ -1,158 +1,33 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-	<head>
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-		<title>Spillane Custom Carpentry</title>
-		<link rel="stylesheet" type="text/css" href="scc.css" />
-		<link rel="stylesheet" type="text/css" href="assets/jquery-lightbox/css/jquery.lightbox-0.5.css" />
-		<script type="text/javascript" src="assets/jquery-lightbox/js/jquery.js"></script>
-		<script type="text/javascript" src="assets/js/testimonials.js"></script>
-		<script type="text/javascript" src="assets/jquery-lightbox/js/jquery.lightbox-0.5.js"></script>
-		<script type="text/javascript">
-			var title = getParameterByName('title');
-			var galleryInitCount = 0;
-			function createGallery(tag, containerId) {
-				galleryInitCount++;
-			    var apiKey = '55ee2fd5b04b436eb07f894a8f8213e2';
-			    var userId = '67916954@N00';
-			    var perPage = '1000';
-			    var showOnPage = '1000';
-
-			    $.getJSON('http://api.flickr.com/services/rest/?format=json&method=flickr.photos.search&api_key=' + apiKey + '&user_id=' + userId + '&tags=' + tag + '&per_page=' + perPage + '&jsoncallback=?', 
-			    function(data){
-			        var classShown = 'class="lightbox"';
-			        var classHidden = 'class="lightbox hidden"';
-
-			        $.each(data.photos.photo, function(i, rPhoto){
-			          var basePhotoURL = 'http://farm' + rPhoto.farm + '.static.flickr.com/'
-			            + rPhoto.server + '/' + rPhoto.id + '_' + rPhoto.secret;            
-
-			            var thumbPhotoURL = basePhotoURL + '_s.jpg';
-			            var mediumPhotoURL = basePhotoURL + '.jpg';
-
-			            var photoStringStart = '<a ';
-			            var photoStringEnd = 'title="' + rPhoto.title + '" href="'+ 
-			                mediumPhotoURL +'" id="' + rPhoto.id + '"><img src="' + thumbPhotoURL + '" alt="' + 
-			                rPhoto.title + '"/></a>;'                
-			            var photoString = (i < showOnPage) ? 
-			                photoStringStart + classShown + photoStringEnd : 
-			                photoStringStart + classHidden + photoStringEnd;
-
-			            $(photoString).appendTo("#" + containerId);
-			        });
-			        $("a.lightbox").lightBox();
-					galleryInitCount--;
-					if(galleryInitCount==0)
-					{
-						autoLaunch();
-					}
-			    });
-			}
-			function autoLaunch()
-			{
-				var imageId = getParameterByName('imageId');
-				if(imageId)
-				{
-					$('#'+imageId).click();
-				}
-			}
-			function getParameterByName(name)
-			{
-			  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-			  var regexS = "[\\?&]" + name + "=([^&#]*)";
-			  var regex = new RegExp(regexS);
-			  var results = regex.exec(window.location.search);
-			  if(results == null)
-			    return "";
-			  else
-			    return decodeURIComponent(results[1].replace(/\+/g, " "));
-			}
-			createGallery('sccmantles', 'mantles');
-			createGallery('sccdecks', 'decks');
-			createGallery('sccrenovations', 'renovations');
-			createGallery('scccabinetry', 'cabinetry');
-			createGallery('scctrim', 'trim');
-		</script>
-	</head>
-	<body>
-		<div id="fb-root" data-href-base='http://www.spillanecustomcarpentry.com/photo_view.php'></div>
-		<script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
-		<div class="centerer">
-			<header>
-				<img src="assets/images/planer.png" id="planer" />
-				<span class="title">Spillane Custom Carpentry</span>
-			</header>
-			<nav>
-				<ul>
-					<li id="tabOne" class="leftUnselectedTab">
-						<a href="index.html">About Us</a>
-					</li>
-					<li id="tabTwo" class="selectedTab">
-						<a href="work.html">Our Work</a>
-					</li>
-					<li id="tabThree" class="tab">
-						<a href="contact.html">Contact Us</a>
-					</li>
-				</ul>
-				<div style="clear:both"></div>
-			</nav>
-			<div id="bodyContainer">
-				<ul id="galleryList">
-					<li class="galleryContainer" id="mantles">
-						<a name="mantles"/>
-						<h1>Mantles</h1>
-						<article>Traditionally, the central gathering place in the finest homes has always been focused around a welcoming fire.  A fireplace mantle sets the stage for whatever mood you would like to create with your interior design.  Whatever your preference; Spillane Custom Carpentry will work with you to design the mantle that is perfect for you.</article>
-					</li>
-					<li class="galleryContainer" id="decks">
-						<a name="decks"/>
-						<h1>Decks</h1>
-						<article>There are so many possibilities to choose from when planning a new deck. Spillane Custom Carpentry can help select the right materials for your specific needs. The process for building our decks is all inclusive, from developing the plans to obtaining the requisite permits to building the deck of you dreams.</article>
-					</li>
-					<li class="galleryContainer" id="renovations">
-						<a name="renovations"/>
-						<h1>Renovations</h1>
-						<article>Whether you are looking to make a simple change or totally remodel your home, Spillane Custom Carpentry and our strategic partners have the expertise to handle it all.  We strive to provide the best quality materials and services, and pride ourselves on always leaving our job sites clean and organized.</article>
-					</li>
-					<li class="galleryContainer" id="cabinetry">
-						<a name="cabinetry"/>
-						<h1>Cabinetry</h1>
-						<article>A built-in cabinet is an excellent way to utilize difficult space or create a stunning centerpiece for your home.  All our cabinets are custom designed to your specifications and are face-framed with the top quality hardwood of your choice.   We have an extensive selection of hardware from the field's best designers.  Our suppliers provide industrial-grade hardware meant to retain their beauty for a lifetime.</article>
-					</li>
-					<li class="galleryContainer" id="trim">
-						<a name="trim"/>
-						<h1>Interior Trim</h1>
-						<article>Whether you're looking to add elegance with a stained three-piece crown moulding, colonial charm with a paint-grade wainscoting, or a Victorian flare with dentil pediments over your doorways, Spillane Custom Carpentry has the creativity and experience to bring the most out of your living environment.</article>
-					</li>
-				</ul>
-				<div style="clear:both"></div>
-			</div>
-			<footer>
-				<div class="testimonials">
-					<h1>Testimonials</h1>
-					<article>
-						<blockquote id="testimonial"></blockquote>
-						<div id="testimonialAuthor"></div>
-					</article>
-				</div>
-				<div class="services">
-					<h1>Services</h1>
-					<ul>
-						<li><a href="work.html#mantles">Mantles</a></li>
-						<li><a href="work.html#decks">Decks</a></li>
-						<li><a href="work.html#renovations">Renovations</a></li>
-						<li><a href="work.html#cabinetry">Cabinetry</a></li>
-						<li><a href="work.html#trim">Interior Trim</a></li>
-					</ul>
-				</div>
-				<div class="follow">
-					<h1>Connect With Us</h1>
-					<ul>
-						<li><a href="http://www.facebook.com/pages/Spillane-Custom-Carpentry/209987452366806" target="_new"><img src="assets/images/facebook.png" /></a></li>
-						<li><a href="http://twitter.com/spillanecustom" target="_new"><img src="assets/images/twitter.png" /></a></li>
-						<li><img src="assets/images/linkedin.png" /></li>
-					</ul>
-				</div>
-			</footer>
-		</div>
-	</body>
-</html>
+<link rel="stylesheet" type="text/css" href="assets/jquery-lightbox/css/jquery.lightbox-0.5.css" />
+<div id="fb-root" data-href-base='http://www.spillanecustomcarpentry.com/photo_view.php'></div>
+<script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+<ul id="galleryList">
+	<li class="galleryContainer" id="mantles">
+		<a name="work/mantles"/>
+		<h1>Mantles</h1>
+		<article>Traditionally, the central gathering place in the finest homes has always been focused around a welcoming fire.  A fireplace mantle sets the stage for whatever mood you would like to create with your interior design.  Whatever your preference; Spillane Custom Carpentry will work with you to design the mantle that is perfect for you.</article>
+	</li>
+	<li class="galleryContainer" id="decks">
+		<a name="work/decks"/>
+		<h1>Decks</h1>
+		<article>There are so many possibilities to choose from when planning a new deck. Spillane Custom Carpentry can help select the right materials for your specific needs. The process for building our decks is all inclusive, from developing the plans to obtaining the requisite permits to building the deck of you dreams.</article>
+	</li>
+	<li class="galleryContainer" id="renovations">
+		<a name="work/renovations"/>
+		<h1>Renovations</h1>
+		<article>Whether you are looking to make a simple change or totally remodel your home, Spillane Custom Carpentry and our strategic partners have the expertise to handle it all.  We strive to provide the best quality materials and services, and pride ourselves on always leaving our job sites clean and organized.</article>
+	</li>
+	<li class="galleryContainer" id="cabinetry">
+		<a name="work/cabinetry"/>
+		<h1>Cabinetry</h1>
+		<article>A built-in cabinet is an excellent way to utilize difficult space or create a stunning centerpiece for your home.  All our cabinets are custom designed to your specifications and are face-framed with the top quality hardwood of your choice.   We have an extensive selection of hardware from the field's best designers.  Our suppliers provide industrial-grade hardware meant to retain their beauty for a lifetime.</article>
+	</li>
+	<li class="galleryContainer" id="trim">
+		<a name="work/trim"/>
+		<h1>Interior Trim</h1>
+		<article>Whether you're looking to add elegance with a stained three-piece crown moulding, colonial charm with a paint-grade wainscoting, or a Victorian flare with dentil pediments over your doorways, Spillane Custom Carpentry has the creativity and experience to bring the most out of your living environment.</article>
+	</li>
+</ul>
+<div style="clear:both"></div>
+<script type="text/javascript" src="assets/jquery-lightbox/js/jquery.lightbox-0.5.js"></script>
+<script type="text/javascript" src="assets/js/gallery.js"></script>

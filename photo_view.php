@@ -7,7 +7,7 @@ $imageURL = htmlspecialchars($_GET["imageURL"]);
 	<head>
 		<title><?=$title?></title>
 		<script type="text/javascript">
-			document.location = '/work.html?imageId=<?=$imageId?>'
+			document.location = '/#work?imageId=<?=$imageId?>'
 		</script>
 	</head>
 	<body>
